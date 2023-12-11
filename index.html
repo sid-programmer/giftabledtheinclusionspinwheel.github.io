@@ -1,0 +1,287 @@
+<!DocTYPE html>
+<html>
+<head>
+<meta name ="viewport" content="width=device-width, initial-scale=1.0">
+<title>Giftabled the inclusion spin wheel game</title>
+<link rel="stylesheet" href="style/style.css">
+<script scr="script/script.js"></script>
+</head>
+<body>
+
+   <!-- //header -->
+<div class="header" >
+      
+    <h1 style=" display:inline; float:center; margin-left: 500px;"> The Wheel of Inclusion!</h1>
+    <a id="#giftabledurl" href="https://giftabled.org/">GiftAbled</a>
+    <img id="logo" src="images/giftabledlogo.png" alt="Your Logo">
+</div> 
+
+<div class="container">
+
+
+    <!-- Spin div -->
+    <div id="chart"></div>
+
+   <!-- play sound code -->
+     <audio style="visibility: hidden"
+      controls="controls"
+      id="applause"
+      src="./applause.mp3"
+      type="audio/mp3"
+    ></audio>
+    <audio style="visibility: hidden"
+      controls="controls"
+      id="wheel"
+      src="./wheel.mp3"
+      type="audio/mp3"
+    ></audio>
+
+
+
+<!-- popup div -->
+<div class="popup" id="popup">
+    <img src="images/404-tick.png">
+    <div class="defination" id="defination">
+        <h2>Defination</h2>
+        <p> Discussing how to ensure that disaster preparedness and response plans consider the needs of individuals with disabilities</p>
+
+    </div>
+    <div class="funfact" id="funfact">
+        <h2>Fun Fact</h2>
+        <p>ShakeAlert system, designed for early earthquake warnings, can be integrated into assistive technologies to help people with disabilities receive and prepare for earthquakes. This innovation demonstrates how technology can make emergency preparedness more inclusive and effective for everyone, including those with disabilities, by providing visual signals or vibrations for those with hearing or mobility impairments</p>
+        
+
+    </div>
+    
+    <div class="scenario" id="scenario">
+      <h2>  Scenario</h2>
+      <p>What if a fire breaks out in a workplace that employs several people with mobility impairments, including one employee who uses a wheelchair, and another who is visually impaired?</p>
+    </div>
+    <button class="btn" type="button" onclick="closePopup()">Go Back To Spin</button>
+</div>
+</div>
+
+
+<script>
+    let popup =document.getElementById("popup");
+    function openPopup()
+    
+    {
+        function open(){
+        popup.classList.add("open-popup")
+        }
+        setTimeout(function() {
+            open()
+        
+    }, 3000);
+    
+    }
+    
+    function closePopup()
+    {
+        popup.classList.remove("open-popup")
+    
+    }
+    </script>
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="script.js"></script>
+    <script type="text/javascript"></script>
+    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    
+    <script>
+       
+                    
+    
+                        var data = [
+                          
+                          {"label":"Accessible Infrastructure", "value":1, "question":"Discussing the importance of creating physical environments and buildings that are accessible to individuals with disabilities.","funfact":"Curb cuts, ramps cut into sidewalks for wheelchair accessibility, have not only improved accessibility for people with mobility issues but also benefited parents, travelers, cyclists, and skateboarders. These ramps not only make urban environments more inclusive but also make them more convenient for a wide range of people, showcasing the benefits of accessible infrastructure.", "scenario":"You work for a mid-sized tech company with a diverse and inclusive workforce. The company has always made efforts to ensure workplace accessibility, but recently, an employee with a mobility impairment pointed out some areas where improvements could be made."}, 
+                          {"label":" Accessible Technology",  "value":2,"question":"Focusing on the development and use of technology that is accessible to people with disabilities.","funfact":"Accessible technology benefits everyone, not just those with disabilities. Features like voice recognition and text-to-speech functions have become widespread, enabling people of all abilities to perform tasks hands-free. Voice assistants like Siri and Google Assistant, initially designed for disabled individuals, are now used by people of all abilities, showcasing inclusive design's ability to enhance technological advancements.", "scenario":"Imagine a workplace where there are several employees who are deaf or hard of hearing, and the company has not yet implemented accessible technology or accommodations for them."},
+                          {"label":"Universal Design",  "value":3,"question":"Promoting the concept of designing products, services, and environments that are usable by all, regardless of ability.","funfact":"Ronald L. Mace, an early pioneer of universal design for disability, was a wheelchair user himself. His personal experience with polio as a child and commitment to inclusivity shaped the principles of universal design, which aim to make products and spaces accessible to the widest range of people, regardless of their abilities or disabilities.", "scenario":"In the bustling city of Metropolis, the municipal government decided to transform an old, underutilized park into a state-of-the-art, universally accessible public space. This is the concept of an inclusive smart park. The goal is to create an environment where everyone,regardless of age, ability, or background, could enjoy the outdoors together. What would you add? "},
+                          {"label":"Employment and Workplace Inclusion",  "value":4,"question":"Addressing strategies for accommodating and supporting individuals with disabilities in the workforce.","funfact":"Companies that prioritize disability inclusion have a competitive edge in recruiting and retaining talent, according to a study by Accenture. This is because they tap into a diverse pool of skilled and motivated individuals, boosting innovation and productivity. Inclusion benefits employees with disabilities and the organization's overall success, making it a beneficial practice.", "scenario":"What if a small technology startup, which has been growing rapidly, wants to hire a new employee who uses a wheelchair? The current office space is not wheelchair accessible, and the team has no prior experience with workplace inclusion and disability accommodation."},
+                          {"label":" Mental Health & Disability",  "value":5,"question":"Examining the intersection of mental health issues and disabilities and the need for better mental health support.","funfact":"An interesting fact about mental health and disability is that many highly successful and influential individuals throughout history have experienced mental health challenges or disabilities. These individuals have not only overcome their obstacles but have also made significant contributions to various fields. For example: Sir Isaac Newton, one of the most influential scientists in history, is believed to have had social anxiety and may have been on the autism spectrum.", "scenario":"Imagine a scenario where a highly skilled employee in your workplace, who has a history of depression, starts to show signs of deteriorating mental health. Their work performance is suffering, they are frequently absent, and their colleagues have noticed a significant change in their behavior. This employee also recently disclosed that they have been diagnosed with depression"},
+                          {"label":"Transportation Accessibility",  "value":6,"question":"Discussing the challenges and solutions related to accessible public transportation.","funfact":"Cities worldwide are implementing innovative solutions to enhance disability transportation accessibility. For instance, Tokyo, Japan, has implemented 'tactile paving' on sidewalks and train platforms, using different patterns and materials to guide visually impaired individuals. This not only improves functionality but also enhances accessibility for those with disabilities.", "scenario":"Imagine a workplace where transportation accessibility for employees with disabilities is a significant challenge. The office is located in an older building in a city center, and there are limited accessible transportation options in the area. Some employees have mobility impairments, while others rely on wheelchairs, making it difficult for them to commute to work independently."},
+                          {"label":"Cultural & Social Inclusion",  "value":7,"question":"Exploring how to make cultural events, social activities, and community spaces more inclusive.","funfact":"Disability cultural and social inclusion is a unique aspect of the disability rights movement, characterized by a rich tradition of art, music, and literature. Disability Pride Parades celebrate disability culture, allowing individuals with disabilities to come together and embrace their identity. These parades feature colorful banners, music, and art, raising awareness about disability issues and advocating for greater inclusion in society. They have become an annual tradition in many cities worldwide.", "scenario":"What if a medium-sized company with a predominantly able-bodied workforce wanted to improve disability cultural and social inclusion in the workplace?"},
+                            {"label":"Assistive Technology", "value":8,"question":"Discussing the various assistive devices and technologies available to support people with disabilities.","funfact":"The computer mouse, initially developed by Douglas Engelbart in the 1960s, was initially designed to assist people with physical disabilities in navigating and interacting with computers. Over time, it has evolved into a mainstream technology tool, impacting how we use computers today and becoming an essential tool for everyone.", "scenario":"Imagine a workplace where an employee with a visual impairment is struggling to access and use printed documents, making it challenging for them to perform their job effectively."},
+                          {"label":"Emergency Preparedness & Response", "value":9,"question":"Discussing how to ensure that disaster preparedness and response plans consider the needs of individuals with disabilities.","funfact":"The 'ShakeAlert' system, designed for early earthquake warnings, can be integrated into assistive technologies to help people with disabilities receive and prepare for earthquakes. This innovation demonstrates how technology can make emergency preparedness more inclusive and effective for everyone, including those with disabilities, by providing visual signals or vibrations for those with hearing or mobility impairments.", "scenario":"What if a fire breaks out in a workplace that employs several people with mobility impairments, including one employee who uses a wheelchair, and another who is visually impaired?"}
+                                 ];
+    
+                    var padding = {top:20, right:40, bottom:20, left:40},
+                    w = 600 - padding.left - padding.right,
+                    h = 600 - padding.top  - padding.bottom,
+                    r = Math.min(w, h)/2,
+                    ontSize = 12; 
+                    rotation = 0,
+                    oldrotation = 0,
+                    picked = 100000,
+                    oldpick = [],
+                    color = d3.scale.category20();//category20c()                
+                     
+    
+                     
+                
+                var svg = d3.select('#chart')
+                    .append("svg")
+                    .data([data])
+                    .attr("width",  w + padding.left + padding.right)
+                    .attr("height", h + padding.top + padding.bottom );
+                var container = svg.append("g")
+                    .attr("class", "chartholder")
+                    .attr("transform", "translate(" + (w/2 + padding.left ) + "," + (h/2 + padding.top) + ")");
+                var vis = container
+                    .append("g");
+                    
+                var pie = d3.layout.pie().sort(null).value(function(d){return 1;});
+                // declare an arc generator function
+                var arc = d3.svg.arc().outerRadius(r+25);
+    
+            
+    
+    
+                // select paths, use arc generator to draw
+                var arcs = vis.selectAll("g.slice")
+                    .data(pie)
+                    .enter()
+                    .append("g")
+                    .attr("class", "slice");
+                 
+        
+    
+        var colors = ["#ffd301", "#ffb921", "#1497d4", "#0047ac","#ffb921"];
+        arcs.append("path")
+        .attr("fill", function(d, i){ return colors[i % colors.length]; })
+        .attr("d", function (d) { return arc(d); });
+    
+    
+                arcs.append("text").attr("transform", function(d){
+                        d.innerRadius = 0;
+                        d.outerRadius = r+30;
+                        d.angle = (d.startAngle + d.endAngle)/2;
+                        return "rotate(" + (d.angle * 180 / Math.PI - 90) + ")translate(" + (d.outerRadius -10) +")";
+                    })
+                 
+        
+    
+                
+                    .attr("text-anchor", "end")
+                    .text( function(d, i) {
+                        return data[i].label;
+                        
+                    })
+                    
+                    
+                    
+                container.on("click", spin);
+                function spin(d){
+                    // Play the sound
+                      wheel.play();
+                     
+                    
+                    container.on("click", null);
+                    //all slices have been seen, all done
+                    openPopup();
+                    console.log("OldPick: " + oldpick.length, "Data length: " + data.length);
+                    if(oldpick.length == data.length){
+                        console.log("done");
+                        container.on("click", null);
+                        return;
+                    }
+                    var  ps       = 360/data.length,
+                         pieslice = Math.round(1440/data.length),
+                         rng      = Math.floor((Math.random() * 1440) + 360);
+                        
+                    rotation = (Math.round(rng / ps) * ps);
+                    
+                    picked = Math.round(data.length - (rotation % 360)/ps);
+                    picked = picked >= data.length ? (picked % data.length) : picked;
+                    if(oldpick.indexOf(picked) !== -1){
+                        d3.select(this).call(spin);
+                        return;
+                    } else {
+                        oldpick.push(picked);
+                    }
+                    rotation += 90 - Math.round(ps/2);
+                    vis.transition()
+                        .duration(3000)
+                        .attrTween("transform", rotTween)
+                        .each("end", function(){
+                            //mark question as seen
+                            d3.select(".slice:nth-child(" + (picked + 1) + ") path")
+                                .attr("fill", "#ffff");
+                            //populate defination
+                            d3.select("#defination p")
+                                .text(data[picked].label+ "- " +data[picked].question ) ;
+                               
+                                //populate funfact
+    
+                               
+                                
+                                d3.select("#funfact p")
+                                .text(data[picked].funfact) ;
+                                
+                                //populate scenario
+    
+                                d3.select("#scenario p")
+                               .text(data[picked].scenario)
+                                
+    
+                           
+                               
+                            oldrotation = rotation;
+                            applause.play();
+                      
+                            /* Get the result value from object "data" */
+                            // console.log(data[picked].value)
+                           
+                      
+                            /* Comment the below line for restrict spin to sngle time */
+                            container.on("click", spin);
+                        });
+                }
+                //make arrow
+                svg.append("g")
+                    .attr("transform", "translate(" + (w + padding.left + padding.right) + "," + ((h/2)+padding.top) + ")")
+                    .append("path")
+                    .attr("d", "M-" + (r*.15) + ",0L0," + (r*.05) + "L0,-" + (r*.05) + "Z")
+                    .style({"fill":"black"});
+                //draw spin circle
+                container.append("circle")
+                    .attr("cx", 0)
+                    .attr("cy", 0)
+                    .attr("r", 60)
+                    .style({"fill":"#ffb921","cursor":"pointer"});
+                //spin text
+                container.append("text")
+                    .attr("x", 0)
+                    .attr("y", 15)
+                    .attr("text-anchor", "middle")
+                    .text("SPIN")
+                    .style({"font-weight":"bold", "font-size":"30px"});
+                
+                
+                function rotTween(to) {
+                  var i = d3.interpolate(oldrotation % 360, rotation);
+                  return function(t) {
+                    return "rotate(" + i(t) + ")";
+                  };
+                }
+                
+                
+                function getRandomNumbers(){
+                    var array = new Uint16Array(1000);
+                    var scale = d3.scale.linear().range([360, 1440]).domain([0, 100000]);
+                    if(window.hasOwnProperty("crypto") && typeof window.crypto.getRandomValues === "function"){
+                        window.crypto.getRandomValues(array);
+                        console.log("works");
+                    } else {
+                        //no support for crypto, get crappy random numbers
+                        for(var i=0; i < 1000; i++){
+                            array[i] = Math.floor(Math.random() * 100000) + 1;
+                        }
+                    }
+                    return array;
+                }
+        </script>
+</body>
+    </html>
